@@ -1,5 +1,5 @@
 name:                userid
-version:             0.1.2.0
+version:             0.1.2.1
 synopsis:            A library which provides the UserId type and useful instances for web development
 description:         Includes instances for SafeCopy, Lens, Boomerang, PathInfo and more
 homepage:            http://www.github.com/Happstack/userid
@@ -17,7 +17,7 @@ library
                        aeson         >= 0.9  && < 0.11,
                        boomerang     >= 1.4  && < 1.5,
                        lens          >= 4.9  && < 4.14,
-                       safecopy      >= 0.8  && < 0.9,
+                       safecopy      >= 0.8  && < 0.10,
                        web-routes    >= 0.27 && < 0.28,
                        web-routes-th >= 0.22 && < 0.23
   default-language:    Haskell2010
