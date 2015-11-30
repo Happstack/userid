@@ -2,15 +2,16 @@
 {- | This module provides a `UserId` type plus some useful instances for web development. -}
 module Data.UserId where
 
-import Control.Lens      ((?=), (.=), (^.), (.~), makeLenses, view, set)
-import Data.Aeson        (FromJSON(..), ToJSON(..), Result(..), fromJSON)
-import Data.Data         (Data)
-import Data.SafeCopy     (SafeCopy, base, deriveSafeCopy)
-import Data.Typeable     (Typeable)
-import GHC.Generics      (Generic)
-import Text.Boomerang.TH (makeBoomerangs)
-import Web.Routes        (PathInfo(..))
-import Web.Routes.TH     (derivePathInfo)
+import Control.Applicative ((<$>))
+import Control.Lens        ((?=), (.=), (^.), (.~), makeLenses, view, set)
+import Data.Aeson          (FromJSON(..), ToJSON(..), Result(..), fromJSON)
+import Data.Data           (Data)
+import Data.SafeCopy       (SafeCopy, base, deriveSafeCopy)
+import Data.Typeable       (Typeable)
+import GHC.Generics        (Generic)
+import Text.Boomerang.TH   (makeBoomerangs)
+import Web.Routes          (PathInfo(..))
+import Web.Routes.TH       (derivePathInfo)
 
 -- | a 'UserId' uniquely identifies a user.
 newtype UserId = UserId { _unUserId :: Integer }
