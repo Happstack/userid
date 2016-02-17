@@ -1,21 +1,30 @@
-{ nixpkgs ? import <nixpkgs> {}, compiler ? "ghc7101" }:
+{ nixpkgs ? import <nixpkgs> {}, compiler ? "default" }:
 
 let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, aeson, base, boomerang, lens, safecopy, stdenv, web-routes-th }:
+  f = { mkDerivation, aeson, base, boomerang, lens, safecopy
+      , stdenv, web-routes, web-routes-th, cabal-install
+      }:
       mkDerivation {
         pname = "userid";
-        version = "0.1.0.0";
+        version = "0.1.2.4";
         src = ./.;
-        buildDepends = [ aeson base boomerang lens safecopy web-routes-th ];
+        libraryHaskellDepends = [
+          aeson base boomerang lens safecopy web-routes web-routes-th
+        ];
         homepage = "http://www.github.com/Happstack/userid";
-        description = "A library which provides the UserId type";
+        description = "The UserId type and useful instances for web development";
         license = stdenv.lib.licenses.bsd3;
+        buildTools = [ cabal-install ];
       };
 
-  drv = pkgs.haskell.packages.${compiler}.callPackage f {};
+  haskellPackages = if compiler == "default"
+                       then pkgs.haskellPackages
+                       else pkgs.haskell.packages.${compiler};
+
+  drv = haskellPackages.callPackage f {};
 
 in
 

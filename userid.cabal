@@ -1,5 +1,5 @@
 name:                userid
-version:             0.1.2.3
+version:             0.1.2.4
 synopsis:            The UserId type and useful instances for web development
 description:         Includes instances for SafeCopy, Lens, Boomerang, PathInfo and more
 homepage:            http://www.github.com/Happstack/userid
@@ -18,8 +18,8 @@ source-repository head
 
 library
   exposed-modules:     Data.UserId
-  build-depends:       base          >= 4.6   && < 4.9,
-                       aeson         >= 0.8  && < 0.11,
+  build-depends:       base          >= 4.6  && < 4.9,
+                       aeson         >= 0.9  && < 0.12,
                        boomerang     >= 1.4  && < 1.5,
                        lens          >= 4.9  && < 4.14,
                        safecopy      >= 0.8  && < 0.10,
