@@ -3,7 +3,6 @@
 module Data.UserId where
 
 import Control.Applicative ((<$>))
-import Control.Lens        ((?=), (.=), (^.), (.~), makeLenses, view, set)
 import Data.Aeson          (FromJSON(..), ToJSON(..), Result(..), fromJSON)
 import Data.Data           (Data)
 import Data.SafeCopy       (SafeCopy, base, deriveSafeCopy)
@@ -17,7 +16,9 @@ import Web.Routes.TH       (derivePathInfo)
 newtype UserId = UserId { _unUserId :: Integer }
     deriving (Eq, Ord, Enum, Read, Show, Data, Typeable, Generic)
 deriveSafeCopy 1 'base ''UserId
-makeLenses ''UserId
+-- makeLenses ''UserId
+unUserId f (UserId x) = fmap UserId (f x)
+{-# INLINE unUserId #-}
 makeBoomerangs ''UserId
 
 instance ToJSON   UserId where toJSON (UserId i) = toJSON i

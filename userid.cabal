@@ -21,7 +21,6 @@ library
   build-depends:       base          >= 4.6  && < 4.9,
                        aeson         >= 0.9  && < 0.12,
                        boomerang     >= 1.4  && < 1.5,
-                       lens          >= 4.9  && < 4.14,
                        safecopy      >= 0.8  && < 0.10,
                        web-routes    >= 0.27 && < 0.28,
                        web-routes-th >= 0.22 && < 0.23
