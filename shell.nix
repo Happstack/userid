@@ -4,15 +4,15 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, aeson, base, boomerang, lens, safecopy
+  f = { mkDerivation, aeson, base, boomerang, safecopy
       , stdenv, web-routes, web-routes-th, cabal-install
       }:
       mkDerivation {
         pname = "userid";
-        version = "0.1.2.4";
+        version = "0.1.2.5";
         src = ./.;
         libraryHaskellDepends = [
-          aeson base boomerang lens safecopy web-routes web-routes-th
+          aeson base boomerang safecopy web-routes web-routes-th
         ];
         homepage = "http://www.github.com/Happstack/userid";
         description = "The UserId type and useful instances for web development";
