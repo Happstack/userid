@@ -1,5 +1,5 @@
 name:                userid
-version:             0.1.2.5
+version:             0.1.2.6
 synopsis:            The UserId type and useful instances for web development
 description:         Includes instances for SafeCopy, Lens, Boomerang, PathInfo and more
 homepage:            http://www.github.com/Happstack/userid
