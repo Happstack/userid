@@ -6,6 +6,7 @@ import Control.Applicative ((<$>))
 import Data.Aeson          (FromJSON(..), ToJSON(..), Result(..), fromJSON)
 import Data.Data           (Data)
 import Data.SafeCopy       (SafeCopy, base, deriveSafeCopy)
+import Data.Serialize      (Serialize)
 import Data.Typeable       (Typeable)
 import GHC.Generics        (Generic)
 import Text.Boomerang.TH   (makeBoomerangs)
@@ -14,7 +15,7 @@ import Web.Routes.TH       (derivePathInfo)
 
 -- | a 'UserId' uniquely identifies a user.
 newtype UserId = UserId { _unUserId :: Integer }
-    deriving (Eq, Ord, Enum, Read, Show, Data, Typeable, Generic)
+    deriving (Eq, Ord, Enum, Read, Show, Data, Typeable, Generic, Serialize)
 deriveSafeCopy 1 'base ''UserId
 -- makeLenses ''UserId
 unUserId f (UserId x) = fmap UserId (f x)
